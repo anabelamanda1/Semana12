@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">        
+    <meta name="description" content="">
+    <title>VUE JS UCH</title>
+    <link rel="stylesheet" href="app/css/css.css">        
+</head>
+<body>
+    <div id="app">
+        <h1>{{ titulo }}</h1>
+        <div v-if="see">
+            Mejores discotecas
+        </div>
+        <div>
+            <ul>
+                <li v-for="discoteca in discotecas">
+                    <h2>{{ discoteca.nombre }}</h2>
+                    <img :src="discoteca.imagen" alt="Imagen de {{ discoteca.nombre }}">
+                    <p>{{ discoteca.descripcion }}</p>
+                    <p><strong>Ubicación:</strong> {{ discoteca.ubicacion }}</p>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <button v-on:click="showMessage">Mostrar Mensage</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app/app.js"></script>
+</body>
+</html>

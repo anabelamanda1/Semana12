@@ -1,0 +1,51 @@
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">        
+        <meta name="description" content="">
+        <title>VUE JS UCH</title>
+        <link rel="stylesheet" href="app/css/css.css">        
+    </head>
+    <body>
+        <div id="app">
+           <h1> {{ titulo }}</h1>
+           <div v-if="see">
+                Promedio Final Ponderado
+           </div>
+           <div style="margin-top: 20px;">
+                <div style="margin-top: 20px;"> 
+                    <label>Programacion</label>
+                    <p style="display: inline;"> Crédito: {{ credito.progra }}</p>
+                    <input type="number" v-model="progra" min="0" max="20" step="1" @input="calcularPromP" :class="{'input-red': progra < 11, 'input-blue': progra >= 11}">
+                    
+                </div>
+                <div style="margin-top: 20px;">
+                    <label>Desarrollo Web</label>
+                    <p style="display: inline;"> Crédito: {{ credito.desarro }}</p>
+                    <input type="number" v-model="desarro" min="0" max="20" step="1" @input="calcularPromDW" :class="{'input-red': desarro < 11, 'input-blue': desarro >= 11}">
+                    
+                </div>
+                <div style="margin-top: 20px;">
+                    <label>Base de Datos</label>
+                    <p style="display: inline;"> Crédito: {{ credito.base }}</p>
+                    <input type="number" v-model="base" min="0" max="20" step="1" @input="calcularPromBD" :class="{'input-red': base < 11, 'input-blue': base >= 11}">
+                    
+                </div>
+                <div style="margin-top: 20px;">
+                    <label>Ingeniería de Software</label>
+                    <p style="display: inline;"> Crédito: {{ credito.ingSoft }}</p>
+                    <input type="number" v-model="ingSoft" min="0" max="20" step="1" @input="calcularPromIS" :class="{'input-red': ingSoft < 11, 'input-blue': ingSoft >= 11}">
+                    
+                </div>
+                <hr>
+                <div>
+                    <p>Promedio Ponderado: {{ promPon.final }}</p>
+                    <p>Condición: {{ promPon.mensaje}}<div v-if="promPon.final >= 11" class="happy-face">😊</div><div v-else class="sad-face">☹️</div></p>       
+                </div>
+           </div>
+        </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app/appN.js"></script>
+</html>
